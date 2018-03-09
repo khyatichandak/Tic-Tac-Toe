@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -15,11 +10,11 @@ and open the template in the editor.
         <script type="text/javascript" src="js/script.js"></script>
     </head>
     <body>
-        <div>
+        <div class="mainBlock">
             <h2>Tic Tac Toe</h2>
             <h4>
-                Player 1 - X<br>
-                Player 2 - O
+                Player 1 - <span id="signX">X</span><br>
+                Player 2 - <span id="signO">O</span>
             </h4>
             <table>
                 <tr class="fromLeft">
@@ -37,11 +32,9 @@ and open the template in the editor.
                     <td><button class="btn btn-default btn-lg" id="21"></button></td>
                     <td><button class="btn btn-default btn-lg" id="22"></button></td>
                 </tr>
-            </table>
-            <h4 id="playAgain">Play again</h4>
+            </table><br>
+            <button class="btn btn-block" id="playAgain">Play again</button><br>
+            <div class="alert" role="alert"></div>
         </div>
-        <?php
-        // put your code here
-        ?>
     </body>
 </html>

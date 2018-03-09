@@ -1,52 +1,61 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 var valueArray = new Array(3);
 $(document).ready(function () {
     var count = 0;
     fillArray();
-    $(document).on('click', '.btn', function () {
+    $(document).on('click', '.btn-default', function () {
         count++;
         if (count % 2 === 0) {
             $(this).html('O');
-            $(this).css('color','limegreen');
+            $(this).css('color', 'limegreen');
             $(this).attr("disabled", true);
             fillArray();
             setTimeout(function () {
                 if (checkStatus('O')) {
-                    alert("Player 2 winner !");
-                    $('.btn').attr("disabled", true);
+                    $('.alert').addClass('alert-success');
+                    $('.alert').html("Player <strong>2</strong> winner !");
+                    $('.alert').show();
+                    setTimeout(function () {
+                        $('.alert').hide();
+                    }, 2000);
+                    $('.btn-default').attr("disabled", true);
                 }
             }, 200);
         } else {
             $(this).html('X');
-            $(this).css('color','gold');
+            $(this).css('color', 'gold');
             $(this).attr("disabled", true);
             fillArray();
             setTimeout(function () {
                 if (checkStatus('X')) {
-                    alert("Player 1 winner !");
-                    $('.btn').attr("disabled", true);
+                    $('.alert').addClass('alert-success');
+                    $('.alert').html("Player <strong>1</strong> winner !");
+                    $('.alert').show();
+                    setTimeout(function () {
+                        $('.alert').hide();
+                    }, 2000);
+                    $('.btn-default').attr("disabled", true);
                 }
             }, 200);
         }
         if (count === 9) {
             if (!checkStatus('O') && !checkStatus('X')) {
                 setTimeout(function () {
-                    alert("Draw !");
+                    $('.alert').addClass('alert-info');
+                    $('.alert').html("Draw !");
+                    $('.alert').show();
+                    setTimeout(function () {
+                        $('.alert').hide();
+                    }, 2000);
                 }, 200);
             }
         }
     });
-    
-    $(document).on('click','#playAgain',function(){
-       $('.btn').html('');
-       count=0;
-       $('.btn').attr("disabled", false);
-       valueArray=[];
-//       console.log(valueArray);
+
+    $(document).on('click', '#playAgain', function () {
+        $('.btn-default').html('');
+        count = 0;
+        $('.btn-default').attr("disabled", false);
+        valueArray = [];
     });
 });
 var checkStatus = function (sign) {
@@ -65,28 +74,6 @@ var checkStatus = function (sign) {
             (valueArray[0][2] === sign && valueArray[1][1] === sign && valueArray[2][0] === sign)) {
         return true;
     }
-
-//    if ((valueArray[0][0] === 'X' && valueArray[0][1] === 'X' && valueArray[0][2] === 'X') ||
-//            (valueArray[1][0] === 'X' && valueArray[1][1] === 'X' && valueArray[1][2] === 'X') ||
-//            (valueArray[2][0] === 'X' && valueArray[2][1] === 'X' && valueArray[2][2] === 'X') ||
-//            (valueArray[0][0] === 'X' && valueArray[1][0] === 'X' && valueArray[2][0] === 'X') ||
-//            (valueArray[0][1] === 'X' && valueArray[1][1] === 'X' && valueArray[2][1] === 'X') ||
-//            (valueArray[0][2] === 'X' && valueArray[1][2] === 'X' && valueArray[2][2] === 'X') ||
-//            (valueArray[0][0] === 'X' && valueArray[1][1] === 'X' && valueArray[2][2] === 'X') ||
-//            (valueArray[0][2] === 'X' && valueArray[1][1] === 'X' && valueArray[2][0] === 'X')) {
-//        alert("Player 1 won");
-//        $('.btn').attr("disabled", true);
-//    } else if ((valueArray[0][0] === '0' && valueArray[0][1] === '0' && valueArray[0][2] === '0') ||
-//            (valueArray[1][0] === '0' && valueArray[1][1] === '0' && valueArray[1][2] === '0') ||
-//            (valueArray[2][0] === '0' && valueArray[2][1] === '0' && valueArray[2][2] === '0') ||
-//            (valueArray[0][0] === '0' && valueArray[1][0] === '0' && valueArray[2][0] === '0') ||
-//            (valueArray[0][1] === '0' && valueArray[1][1] === '0' && valueArray[2][1] === '0') ||
-//            (valueArray[0][2] === '0' && valueArray[1][2] === '0' && valueArray[2][2] === '0') ||
-//            (valueArray[0][0] === '0' && valueArray[1][1] === '0' && valueArray[2][2] === '0') ||
-//            (valueArray[0][2] === '0' && valueArray[1][1] === '0' && valueArray[2][0] === '0')) {
-//        alert("Player 2 won");
-//        $('.btn').attr("disabled", true);
-//    }
 };
 var fillArray = function () {
     var i = 0;
