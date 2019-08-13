@@ -21,8 +21,6 @@
     "@angular/router": "~8.1.0",
     "angular-fusioncharts": "^3.0.3",
     "bootstrap": "^4.3.1",
-    "chart.js": "^2.8.0",
-    "fusioncharts": "^3.14.0-sr.1",
     "jquery": "^3.4.1",
     "ng2-charts": "^2.3.0",
     "popper.js": "^1.15.0",
