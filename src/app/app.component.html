@@ -1,0 +1,59 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+	<div class="borderBlock">
+		<div class="mainBlock">
+			<h2>Tic Tac Toe</h2>
+			<button (click)="setPlayer(1)" class="btn btn-outline-light"><img src="./assets/single_player.png"
+					class="players-logo"></button>
+			<button (click)="setPlayer(2)" class="btn btn-outline-light"><img src="./assets/double_player.png"
+					class="players-logo"></button><br>
+			<br>
+			<div [hidden]="player==0" *ngIf="display">
+				<input type="text" placeholder="Player1 name" [(ngModel)]="player1"><br>
+				<input type="text" placeholder="Player2 name" [(ngModel)]="player2" [hidden]="player==1"><br>
+				<button class="btn btn-info" (click)="onSubmit(player1,player2)">OK</button>
+			</div>
+
+			<h4>
+				<span *ngIf="player1==''">Player 1</span><span *ngIf="player1!=''">{{player1}}</span> - <span
+					id="signX">X</span> - {{player1Won}}<br>
+				<span *ngIf="player2==''">Player 2</span><span *ngIf="player2!=''">{{player2}}</span> - <span
+					id="signO">O</span> - {{player2Won}}
+			</h4>
+			<table>
+				<tr class="fromLeft">
+					<td><button class="btn btn-light btn-lg" id="00" (click)="addSign(0,0)"
+							[disabled]="arr[0][0] != ''">{{arr[0][0]}}</button></td>
+					<td><button class="btn btn-light btn-lg" id="01" (click)="addSign(0,1)"
+							[disabled]="arr[0][1] != ''">{{arr[0][1]}}</button></td>
+					<td><button class="btn btn-light btn-lg" id="02" (click)="addSign(0,2)"
+							[disabled]="arr[0][2] != ''">{{arr[0][2]}}</button></td>
+				</tr>
+				<tr class="fromLeft">
+					<td><button class="btn btn-light btn-lg" id="10" (click)="addSign(1,0)"
+							[disabled]="arr[1][0] != ''">{{arr[1][0]}}</button></td>
+					<td><button class="btn btn-light btn-lg" id="11" (click)="addSign(1,1)"
+							[disabled]="arr[1][1] != ''">{{arr[1][1]}}</button></td>
+					<td><button class="btn btn-light btn-lg" id="12" (click)="addSign(1,2)"
+							[disabled]="arr[1][2] != ''">{{arr[1][2]}}</button></td>
+				</tr>
+				<tr class="fromLeft">
+					<td><button class="btn btn-light btn-lg" id="20" (click)="addSign(2,0)"
+							[disabled]="arr[2][0] != ''">{{arr[2][0]}}</button></td>
+					<td><button class="btn btn-light btn-lg" id="21" (click)="addSign(2,1)"
+							[disabled]="arr[2][1] != ''">{{arr[2][1]}}</button></td>
+					<td><button class="btn btn-light btn-lg" id="22" (click)="addSign(2,2)"
+							[disabled]="arr[2][2] != ''">{{arr[2][2]}}</button></td>
+				</tr>
+			</table>
+			<br>
+			<button class="btn btn-success btn-block" id="playAgain" (click)="playAgain()">Play again</button>
+			<br>
+			<!-- <div class="alert" role="alert"> -->
+				<h5>{{gameResult}}</h5>
+			<!-- </div> -->
+		</div>
+	</div>
+</div>
+
+<router-outlet></router-outlet>
