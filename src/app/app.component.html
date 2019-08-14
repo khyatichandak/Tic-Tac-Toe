@@ -11,7 +11,7 @@
 			<div [hidden]="player==0" *ngIf="display">
 				<input type="text" placeholder="Player1 name" [(ngModel)]="player1"><br>
 				<input type="text" placeholder="Player2 name" [(ngModel)]="player2" [hidden]="player==1"><br>
-				<button class="btn btn-info" (click)="onSubmit(player1,player2)">OK</button>
+				<button class="btn btn-info" (click)="playerNames(player1,player2)">OK</button>
 			</div>
 
 			<h4>

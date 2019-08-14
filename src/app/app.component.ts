@@ -26,7 +26,7 @@ export class AppComponent {
 		this.player2 = "Player 2";
 		this.display = true;
 	}
-	onSubmit(p1: string, p2: string) {
+	playerNames(p1: string, p2: string) {
 		this.player1 = p1;
 		if (this.player == 1) {
 			this.player2 = "Robot";
@@ -38,6 +38,8 @@ export class AppComponent {
 		console.log(this.player1 + " " + this.player2);
 		this.display = false;
 		this.playAgain();
+		this.player1Won=0;
+		this.player2Won=0;
 	}
 	// call checkResult without setTimeOut works fine, with setTimeOut, the function has been called but not executing other parts
 	addSign(i: number, j: number) {
